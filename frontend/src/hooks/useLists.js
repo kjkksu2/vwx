@@ -14,9 +14,6 @@ const useLists = (category) => {
       case "contact":
         setArr(["이메일", "탤런티드"]);
         break;
-      case "qualification":
-        setArr(["자격"]);
-        break;
       default:
         break;
     }

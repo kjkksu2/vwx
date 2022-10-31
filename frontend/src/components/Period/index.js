@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import useExtractFromRegex from "../../hooks/useExtractFromRegex";
 import useRegex from "../../hooks/useRegex";
 
-const Period = () => {
+const Period = ({ text }) => {
   const periodLists = useRegex("period");
-  const period = useExtractFromRegex(periodLists);
+  const period = useExtractFromRegex(periodLists, text);
 
   const [fastDate, setFastDate] = useState(null);
 
@@ -37,7 +38,11 @@ const Period = () => {
     }
   }, [period]);
 
-  return <p>{String(fastDate) || "본문 참조"}</p>;
+  return <p>{fastDate !== null ? String(fastDate) : "본문 참조"}</p>;
+};
+
+Period.propTypes = {
+  text: PropTypes.string.isRequired,
 };
 
 export default Period;

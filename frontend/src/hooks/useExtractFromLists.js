@@ -1,22 +1,17 @@
 import { useState, useEffect } from "react";
 
-const useExtractFromLists = (targetLists) => {
+const useExtractFromLists = (targetLists, text) => {
   const [arr, setArr] = useState([]);
 
   useEffect(() => {
-    const textArray = Array.from(document.querySelectorAll(".original")).map(
-      (v) => v.innerText
-    );
-    const paragraph = textArray.join("");
-
     for (const v of targetLists) {
       const regex = new RegExp(v, "g");
 
-      if (regex.test(paragraph)) {
-        setArr((prev) => [...prev, v]);
+      if (regex.test(text)) {
+        setArr((prev) => [...prev, ...new Set(text.match(regex))]);
       }
     }
-  }, [targetLists]);
+  }, [targetLists, text]);
 
   return arr.join(", ");
 };
