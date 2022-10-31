@@ -23,7 +23,7 @@ const Period = ({ text }) => {
           .trim()
           .split("일")[0];
 
-        return `${year}-${month}-${day}`;
+        return `${year}.${month}.${day}`;
       });
     } else {
       res = period;

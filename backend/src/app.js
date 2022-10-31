@@ -12,7 +12,7 @@ app.use(
 );
 
 app.get("/post", (req, res, next) => {
-  res.sendFile(path.join(__dirname + "/test.txt"));
+  res.sendFile(path.join(__dirname + "/test2.txt"));
 });
 
 app.listen(4000, () => console.log(`✅ Listening on port 4000`));

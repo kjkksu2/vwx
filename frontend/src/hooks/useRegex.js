@@ -6,7 +6,12 @@ const useRegex = (category) => {
   useEffect(() => {
     switch (category) {
       case "age":
-        setArr([`\\d+ ~ \\d+`, `\\d+~\\d+`, `만\\d+세`, `만\\s\\d+세`]);
+        setArr([
+          `\\d{4} ~ \\d{4}`,
+          `\\d{4}~\\d{4}`,
+          `만\\d+세 이하`,
+          `만\\s\\d+세 이하`,
+        ]);
         break;
       case "period":
         setArr([
