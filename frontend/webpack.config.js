@@ -22,7 +22,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
   devServer: {
     devMiddleware: { publicPath: "/dist" },
     static: { directory: path.join(__dirname, "public") },

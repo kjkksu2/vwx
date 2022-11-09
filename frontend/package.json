@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "predeploy": "webpack --mode=production --devtool=hidden-source-map",
-    "deploy": "gh-pages -d public",
+    "deploy": "gh-pages -d dist",
     "dev": "webpack serve --mode=development --devtool=eval"
   },
   "keywords": [],
