@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useExtractFromRegex = (targetLists, text) => {
+const useRegex = (targetLists, text) => {
   const [value, setValue] = useState(null);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const useExtractFromRegex = (targetLists, text) => {
   return value?.join(", ");
 };
 
-export default useExtractFromRegex;
+export default useRegex;

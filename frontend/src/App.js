@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { RecoilRoot } from "recoil";
 import Classification from "./components/Classification";
 import Tag from "./components/Tag";
 import Url from "./components/Url";
@@ -28,17 +29,18 @@ const App = () => {
   }, []);
 
   return (
-    <Container>
-      <h1>{header}</h1>
-      <Classification text={text} />
-      <form onSubmit={onSubmit}>
-        <textarea onChange={onChange}></textarea>
-        <button type="submit">추출</button>
-      </form>
-      <Url text={text} />
-      <Tag text={text} />
-      <span>태그: 모집분야, 모집성별</span>
-    </Container>
+    <RecoilRoot>
+      <Container>
+        <h1>{header}</h1>
+        <Classification text={text} />
+        <form onSubmit={onSubmit}>
+          <textarea onChange={onChange}></textarea>
+          <button type="submit">추출</button>
+        </form>
+        <Url text={text} />
+        <Tag />
+      </Container>
+    </RecoilRoot>
   );
 };
 

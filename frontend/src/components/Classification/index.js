@@ -7,7 +7,7 @@ import Field from "../Field";
 import Gender from "../Gender";
 import Period from "../Period";
 import Qualification from "../Qualification";
-import { Block } from "./styles";
+import { Block } from "../../styles";
 
 const Classification = ({ text }) => {
   return (

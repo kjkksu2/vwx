@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import PropTypes from "prop-types";
+import { useRecoilState } from "recoil";
+import { fieldState, genderState } from "../../recoil";
+import { Block } from "../../styles";
 
-const Tag = ({ text }) => {
-  const [value, setValue] = useState("");
+const Tag = () => {
+  const [field, setField] = useRecoilState(fieldState);
+  const [gender, setGender] = useRecoilState(genderState);
 
-  useEffect(() => {
-    setValue("");
-  }, [text]);
-
-  useEffect(() => {
-    const modifiedText = text.split("\n");
-  }, [text]);
-
-  return <p>{value || "본문 참조"}</p>;
-};
-
-Tag.propTypes = {
-  text: PropTypes.string.isRequired,
+  return (
+    <Block>
+      <span>태그</span>
+      <>
+        {field && gender ? (
+          <p>
+            {field}
+            {", "}
+            {gender}
+          </p>
+        ) : (
+          <p>본문 참조</p>
+        )}
+      </>
+    </Block>
+  );
 };
 
 export default Tag;
