@@ -5,6 +5,10 @@ const Qualification = ({ text }) => {
   const [value, setValue] = useState(null);
 
   useEffect(() => {
+    setValue(null);
+  }, [text]);
+
+  useEffect(() => {
     const modifiedText = text.split("\n");
 
     for (let i = 0; i < modifiedText.length; i++) {
@@ -12,7 +16,7 @@ const Qualification = ({ text }) => {
         let size = i + 1;
 
         while (true) {
-          if (modifiedText[size] !== "\r") {
+          if (modifiedText[size] !== "") {
             return setValue(modifiedText[size]);
           }
           size += 1;

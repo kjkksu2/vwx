@@ -3,8 +3,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   name: "VWX",
-  mode: "development",
-  devtool: "eval",
   resolve: {
     extensions: [".js", ".jsx"],
   },

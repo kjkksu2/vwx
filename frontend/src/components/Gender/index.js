@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import useExtractFromLists from "../../hooks/useExtractFromLists";
-import useLists from "../../hooks/useLists";
+import useRegex from "../../hooks/useRegex";
 
 const Gender = ({ text }) => {
-  const genderLists = useLists("gender");
+  const genderLists = useRegex("gender");
   const gender = useExtractFromLists(genderLists, text);
 
   return <p>{gender || "본문 참조"}</p>;

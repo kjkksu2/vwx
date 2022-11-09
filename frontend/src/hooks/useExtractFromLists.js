@@ -4,6 +4,10 @@ const useExtractFromLists = (targetLists, text) => {
   const [arr, setArr] = useState([]);
 
   useEffect(() => {
+    setArr([]);
+  }, [text]);
+
+  useEffect(() => {
     for (const v of targetLists) {
       const regex = new RegExp(v, "g");
 

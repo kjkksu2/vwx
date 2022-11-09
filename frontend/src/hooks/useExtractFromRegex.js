@@ -4,6 +4,10 @@ const useExtractFromRegex = (targetLists, text) => {
   const [value, setValue] = useState(null);
 
   useEffect(() => {
+    setValue(null);
+  }, [text]);
+
+  useEffect(() => {
     for (const v of targetLists) {
       const regex = new RegExp(v, "g");
 
