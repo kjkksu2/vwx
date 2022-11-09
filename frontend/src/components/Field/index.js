@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import useExtractFromLists from "../../hooks/useExtractFromLists";
+import usePattern from "../../hooks/usePattern";
 import useRegex from "../../hooks/useRegex";
 
 const Field = ({ text }) => {
-  const fieldLists = useRegex("field");
-  const field = useExtractFromLists(fieldLists, text);
+  const fieldLists = usePattern("field");
+  const field = useRegex(fieldLists, text);
 
   return <p>{field || "본문 참조"}</p>;
 };

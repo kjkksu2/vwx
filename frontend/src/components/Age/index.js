@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import useExtractFromRegex from "../../hooks/useExtractFromRegex";
+import usePattern from "../../hooks/usePattern";
 import useRegex from "../../hooks/useRegex";
 
 const Age = ({ text }) => {
-  const ageLists = useRegex("age");
-  const age = useExtractFromRegex(ageLists, text);
+  const ageLists = usePattern("age");
+  const age = useRegex(ageLists, text);
 
   return <p>{age || "본문 참조"}</p>;
 };

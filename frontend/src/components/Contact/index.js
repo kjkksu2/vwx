@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useExtractFromLists from "../../hooks/useExtractFromLists";
+import usePattern from "../../hooks/usePattern";
 import useRegex from "../../hooks/useRegex";
 
 const Contact = ({ text }) => {
-  const contactLists = useRegex("contact");
-  const contact = useExtractFromLists(contactLists, text);
+  const contactLists = usePattern("contact");
+  const contact = useRegex(contactLists, text);
 
   return <p>{contact || "본문 참조"}</p>;
 };

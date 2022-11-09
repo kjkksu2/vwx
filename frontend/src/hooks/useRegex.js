@@ -1,78 +1,23 @@
 import { useState, useEffect } from "react";
 
-const useRegex = (category) => {
-  const [arr, setArr] = useState([]);
+const useExtractFromRegex = (targetLists, text) => {
+  const [value, setValue] = useState(null);
 
   useEffect(() => {
-    switch (category) {
-      case "field":
-        setArr([
-          "배우",
-          "연출",
-          "극작",
-          "기획",
-          "보컬",
-          "랩",
-          "댄스",
-          "연기",
-          "가수",
-          "무용",
-          "모델",
-          "연주",
-          "아이돌",
-        ]);
-        break;
-      case "period":
-        setArr([
-          `\\d{4}년 ([1-9]|0[1-9]|1[012])월 ([1-9]|0[1-9]|[12][0-9]|3[01])일`,
-          `\\d{4}.([1-9]|0[1-9]|1[012]).(0[1-9]|[12][0-9]|3[01]|[1-9])`,
-          `\\d{4}-([1-9]|0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]|[1-9])`,
-          `([1-9]|0[1-9]|1[012])월 (0[1-9]|[12][0-9]|3[01]|[1-9])일`,
-          `매주 (월|화|수|목|금|토|일)부터`,
-        ]);
-        break;
-      case "age":
-        setArr([
-          `\\d{4} ~ \\d{4}`,
-          `\\d{4}~\\d{4}`,
-          `만\\d+세 이하`,
-          `만\\s\\d+세 이하`,
-          `\\d{4}년생부터 \\d{4}년출생`,
-          `최소나이 만\\d{2}세`,
-          `\\d{4}년(\\d{2}세)`,
-        ]);
-        break;
-      case "gender":
-        setArr([
-          "남성",
-          "여성",
-          "남자",
-          "여자",
-          "모두",
-          "남녀",
-          "누구나",
-          "무관",
-        ]);
-        break;
-      case "contact":
-        setArr([
-          "이메일",
-          "탤런티드",
-          "현장",
-          "구글폼",
-          "홈페이지",
-          "현장접수",
-          "카카오톡",
-          "온라인",
-          "인스타그램",
-        ]);
-        break;
-      default:
-        break;
-    }
-  }, []);
+    setValue(null);
+  }, [text]);
 
-  return arr;
+  useEffect(() => {
+    for (const v of targetLists) {
+      const regex = new RegExp(v, "g");
+
+      if (regex.test(text)) {
+        return setValue([...new Set(text.match(regex))]);
+      }
+    }
+  }, [targetLists, text]);
+
+  return value?.join(", ");
 };
 
-export default useRegex;
+export default useExtractFromRegex;
