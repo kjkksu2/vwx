@@ -1,5 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   name: "VWX",
@@ -21,7 +22,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
   devServer: {
     devMiddleware: { publicPath: "/dist" },
     static: { directory: path.join(__dirname, "public") },
