@@ -9,17 +9,28 @@ const Qualification = ({ text }) => {
   }, [text]);
 
   useEffect(() => {
-    const modifiedText = text.split("\n");
+    const textArray = text.split("\n");
+    const regex = new RegExp("(지원자격|자격요건)", "g");
 
-    for (let i = 0; i < modifiedText.length; i++) {
-      if (modifiedText[i].includes("자격")) {
-        let size = i + 1;
+    for (let i = 0; i < textArray.length; i++) {
+      if (regex.test(textArray[i])) {
+        const res = textArray[i]
+          .split(/(지원자격|자격요건)/g)[2]
+          .split(/^[^0-9가-힣]+/g)[1];
 
-        while (true) {
-          if (modifiedText[size] !== "") {
-            return setValue(modifiedText[size]);
+        if (res) {
+          // 찾은줄
+          return setValue(res);
+        } else {
+          // 다음줄
+          let size = i + 1;
+
+          while (true) {
+            if (textArray[size] !== "") {
+              return setValue(textArray[size]);
+            }
+            size += 1;
           }
-          size += 1;
         }
       }
     }

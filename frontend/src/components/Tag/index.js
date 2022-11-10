@@ -1,5 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { fieldState, genderState } from "../../recoil";
 import { Block } from "../../styles";
