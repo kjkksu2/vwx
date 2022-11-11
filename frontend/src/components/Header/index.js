@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Container } from "./styles";
 
 const Header = ({ text }) => {
   const [header, setHeader] = useState(null);
@@ -19,7 +20,7 @@ const Header = ({ text }) => {
     }
   }, [text]);
 
-  return <h1>{header || "비어있는 헤더"}</h1>;
+  return <Container>{header || "제목 없음"}</Container>;
 };
 
 Header.propTypes = {

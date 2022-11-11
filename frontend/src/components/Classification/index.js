@@ -8,10 +8,11 @@ import Gender from "./Gender";
 import Period from "./Period";
 import Qualification from "./Qualification";
 import { Block } from "../../styles";
+import { Container } from "./styles";
 
 const Classification = ({ text }) => {
   return (
-    <>
+    <Container>
       <Block>
         <span>모집분야</span>
         <Field text={text} />
@@ -36,7 +37,7 @@ const Classification = ({ text }) => {
         <span>지원방법</span>
         <Contact text={text} />
       </Block>
-    </>
+    </Container>
   );
 };
 

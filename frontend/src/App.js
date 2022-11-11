@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { RecoilRoot } from "recoil";
 import Classification from "./components/Classification";
 import Header from "./components/Header";
+import Info from "./components/Info";
 import Tag from "./components/Tag";
 import Url from "./components/Url";
-import { Container } from "./styles";
+import { GlobalStyle, Container, Box } from "./styles";
 
 const App = () => {
   const [value, setValue] = useState("");
@@ -24,16 +25,24 @@ const App = () => {
 
   return (
     <RecoilRoot>
-      <Container>
-        <Header text={text} />
-        <Classification text={text} />
-        <form onSubmit={onSubmit}>
-          <textarea onChange={onChange}></textarea>
-          <button type="submit">추출</button>
-        </form>
-        <Url text={text} />
-        <Tag />
-      </Container>
+      <GlobalStyle />
+      <div style={{ backgroundColor: "#4f6671", padding: "80px 0" }}>
+        <div style={{ backgroundColor: "#fafafa", padding: "0 50px" }}>
+          <Container>
+            <Header text={text} />
+            <Info />
+            <Classification text={text} />
+            <Box>
+              <form onSubmit={onSubmit}>
+                <textarea onChange={onChange}></textarea>
+                <button type="submit">추출</button>
+              </form>
+            </Box>
+            <Url text={text} />
+            <Tag />
+          </Container>
+        </div>
+      </div>
     </RecoilRoot>
   );
 };
