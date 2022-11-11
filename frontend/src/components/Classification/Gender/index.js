@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useRecoilState } from "recoil";
-import usePattern from "../../hooks/usePattern";
-import useRegex from "../../hooks/useRegex";
-import { genderState } from "../../recoil";
+import usePattern from "../../../hooks/usePattern";
+import useRegex from "../../../hooks/useRegex";
+import { genderState } from "../../../recoil";
 
 const Gender = ({ text }) => {
   const genderLists = usePattern("gender");

@@ -1,20 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { RecoilRoot } from "recoil";
 import Classification from "./components/Classification";
+import Header from "./components/Header";
 import Tag from "./components/Tag";
 import Url from "./components/Url";
 import { Container } from "./styles";
 
 const App = () => {
-  const [header, setHeader] = useState("비어있는 헤더");
   const [value, setValue] = useState("");
   const [text, setText] = useState("");
-
-  useEffect(() => {
-    if (value) {
-      setHeader(value.split("\n")[0]);
-    }
-  }, [value]);
 
   const onSubmit = useCallback(
     (e) => {
@@ -31,7 +25,7 @@ const App = () => {
   return (
     <RecoilRoot>
       <Container>
-        <h1>{header}</h1>
+        <Header text={text} />
         <Classification text={text} />
         <form onSubmit={onSubmit}>
           <textarea onChange={onChange}></textarea>

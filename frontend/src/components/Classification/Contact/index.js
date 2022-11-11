@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import usePattern from "../../hooks/usePattern";
-import useRegex from "../../hooks/useRegex";
+import usePattern from "../../../hooks/usePattern";
+import useRegex from "../../../hooks/useRegex";
 
 const Contact = ({ text }) => {
   const contactLists = usePattern("contact");
