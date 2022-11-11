@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  li{
+    list-style: none;
+  }
 `;
 
 export const Container = styled.div`
