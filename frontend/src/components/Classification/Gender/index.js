@@ -50,9 +50,14 @@ const Gender = ({ text }) => {
     const maleRegex = new RegExp("(남성|남자|^남$)", "g");
     const femaleRegex = new RegExp("(여성|여자|^여$)", "g");
 
-    if (maleRegex.test(gender)) {
+    const maleFlag = maleRegex.test(gender);
+    const femaleFlag = femaleRegex.test(gender);
+
+    if (maleFlag && femaleFlag) {
+      noneRef.current.checked = true;
+    } else if (maleFlag) {
       maleRef.current.checked = true;
-    } else if (femaleRegex.test(gender)) {
+    } else if (femaleFlag) {
       femaleRef.current.checked = true;
     } else {
       noneRef.current.checked = true;

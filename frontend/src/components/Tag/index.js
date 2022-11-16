@@ -11,7 +11,7 @@ const Tag = () => {
 
   useEffect(() => {
     if (field && gender) {
-      setLists([...field[0].split(", "), ...gender.split(", ")]);
+      setLists([...field.split(", "), ...gender?.split(", ")]);
     }
   }, [field, gender]);
 

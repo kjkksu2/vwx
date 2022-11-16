@@ -11,7 +11,7 @@ const Field = ({ text }) => {
   const [value, setValue] = useRecoilState(fieldState);
 
   useEffect(() => {
-    setValue([field]);
+    setValue(field);
   }, [field]);
 
   return <p>{field || "본문 참조"}</p>;

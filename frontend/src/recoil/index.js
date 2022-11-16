@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const fieldState = atom({
   key: "field",
-  default: [],
+  default: "",
 });
 
 export const genderState = atom({

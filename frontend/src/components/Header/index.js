@@ -7,7 +7,7 @@ const Header = ({ text }) => {
 
   useEffect(() => {
     setHeader(null);
-  }, []);
+  }, [text]);
 
   useEffect(() => {
     const textArray = text.split("\n");
